@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -16,13 +16,16 @@
       align-items: center;
       overflow: hidden;
       font-family: 'Creepster', cursive;
+      flex-direction: column;
     }
 
     /* Calabaza fosforescente */
     .pumpkin {
       position: relative;
-      width: 300px;
-      height: 300px;
+      width: 60vw;
+      max-width: 320px;
+      height: 60vw;
+      max-height: 320px;
       background: radial-gradient(circle at center, orange 0%, #ff6600 80%);
       border-radius: 50%;
       box-shadow: 0 0 60px 20px rgba(255, 165, 0, 0.8);
@@ -31,42 +34,42 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-top: 5vh;
     }
 
-    /* Segmentos de calabaza */
+    /* Segmentos */
     .pumpkin::before, .pumpkin::after {
       content: '';
       position: absolute;
       top: 50%;
-      width: 40px;
-      height: 100px;
+      width: 12%;
+      height: 35%;
       background: #ff6600;
       border-radius: 50%;
       transform: translateY(-50%);
     }
-
-    .pumpkin::before { left: -20px; }
-    .pumpkin::after { right: -20px; }
+    .pumpkin::before { left: -6%; }
+    .pumpkin::after { right: -6%; }
 
     /* Tallo */
     .stem {
       position: absolute;
-      top: -40px;
+      top: -12%;
       left: 50%;
       transform: translateX(-50%);
-      width: 40px;
-      height: 60px;
+      width: 15%;
+      height: 20%;
       background: green;
       border-radius: 10px;
     }
 
-    /* Animación brillo */
+    /* Glow animado */
     @keyframes glow {
       from { box-shadow: 0 0 40px 10px rgba(255, 165, 0, 0.5); }
       to { box-shadow: 0 0 80px 30px rgba(255, 255, 0, 1); }
     }
 
-    /* Cara de calabaza */
+    /* Cara */
     .face {
       position: absolute;
       width: 100%;
@@ -81,40 +84,40 @@
       display: flex;
       justify-content: space-between;
       width: 55%;
-      margin-bottom: 10px;
+      margin-bottom: 5%;
     }
 
     .eye {
-      width: 60px;
-      height: 60px;
+      width: 18%;
+      aspect-ratio: 1/1;
       background: black;
       clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      box-shadow: 0 0 20px 10px rgba(0,0,0,0.8);
+      box-shadow: 0 0 15px 5px rgba(0,0,0,0.8);
     }
 
     .nose {
-      width: 30px;
-      height: 30px;
+      width: 10%;
+      aspect-ratio: 1/1;
       background: black;
       clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      margin: 5px 0 15px 0;
+      margin: 3% 0 6% 0;
     }
 
     .mouth {
-      width: 180px;
-      height: 80px;
+      width: 60%;
+      height: 20%;
       background: black;
       clip-path: polygon(0% 50%, 10% 70%, 20% 40%, 30% 70%, 40% 45%, 50% 75%, 
                         60% 45%, 70% 70%, 80% 40%, 90% 70%, 100% 50%, 100% 100%, 0% 100%);
-      box-shadow: 0 0 25px 12px rgba(0,0,0,0.8);
+      box-shadow: 0 0 20px 8px rgba(0,0,0,0.8);
     }
 
     /* Texto */
     .message {
-      position: absolute;
-      bottom: 30px;
+      margin-top: 5vh;
+      padding: 0 5vw;
       text-align: center;
-      font-size: 2rem;
+      font-size: clamp(1.2rem, 4vw, 2rem);
       color: #ff66ff;
       text-shadow: 0 0 15px #ff33ff, 0 0 30px #ff00ff;
       animation: floatText 3s ease-in-out infinite;
@@ -128,8 +131,10 @@
     /* Murciélagos */
     .bat {
       position: absolute;
-      width: 60px;
-      height: 20px;
+      width: 12vw;
+      max-width: 60px;
+      height: 4vw;
+      max-height: 20px;
       background: black;
       border-radius: 50% 50% 0 0;
       animation: fly 10s linear infinite;
@@ -139,15 +144,14 @@
     .bat::before, .bat::after {
       content: '';
       position: absolute;
-      width: 30px;
-      height: 20px;
+      width: 50%;
+      height: 100%;
       background: black;
       border-radius: 50%;
       top: 0;
     }
-
-    .bat::before { left: -30px; }
-    .bat::after { right: -30px; }
+    .bat::before { left: -50%; }
+    .bat::after { right: -50%; }
 
     @keyframes fly {
       0% { transform: translateX(-10vw) translateY(0); }
@@ -186,15 +190,9 @@
     </div>
   </div>
 
-  <div class="message">Boo! Te quiero tanto que hasta los fantasmas se ponen celosos 👻💜</div>
+  <div class="message"> Boo! Te quiero muchoo, si te lo mande es porque eres especial para mi 🎃👻 </div>
 
-  <!-- Murciélagos extra -->
-  <div class="bat" style="top:15%; animation-delay:0s;"></div>
-  <div class="bat" style="top:30%; animation-delay:2s;"></div>
-  <div class="bat" style="top:45%; animation-delay:4s;"></div>
-  <div class="bat" style="top:60%; animation-delay:6s;"></div>
-  <div class="bat" style="top:75%; animation-delay:8s;"></div>
-
+  
   <!-- Luces flotantes -->
   <script>
     for (let i = 0; i < 25; i++) {
